@@ -12,6 +12,18 @@ import (
 func main() {
 	data := loadData()
 	displayMostExpensive(data)
+
+	displayLongCds(data)
+
+}
+
+func displayLongCds(data []types.Item) {
+	fmt.Println("Long cds..")
+	cds := handler.LongCds(data)
+	for _, item := range cds {
+		fmt.Printf("Item: %+v\n", item)
+	}
+	fmt.Println()
 }
 
 func displayMostExpensive(data []types.Item) {
@@ -36,6 +48,7 @@ func displayMostExpensive(data []types.Item) {
 	}
 	fmt.Println()
 }
+
 func loadData() []types.Item {
 	jsonFile, err := os.Open("data.json")
 	if err != nil {
