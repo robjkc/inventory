@@ -11,12 +11,15 @@ func LongCds(items []types.Item) []types.Item {
 
 		if item.Type == "cd" {
 			totalSeconds := 0
+
+			// Calculate total time of cd.
 			tracks := item.Tracks
 			for _, track := range tracks {
 				totalSeconds += track.Seconds
 			}
 
 			if totalSeconds > 3600 {
+				// Cd is longer than 60 minutes.
 				list = append(list, item)
 			}
 		}
