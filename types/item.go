@@ -1,13 +1,14 @@
 package types
 
 type Item struct {
-	Type     string  `json:"type"`
-	Title    string  `json:"title"`
-	Price    float32 `json:"price"`
-	Author   string  `json:"author"`
-	Director string  `json:"director"`
-	Artist   string  `json:"artist"`
-	Tracks   []Track `json:"tracks"`
+	Type     string   `json:"type"`
+	Title    string   `json:"title"`
+	Price    float32  `json:"price"`
+	Author   string   `json:"author"`
+	Director string   `json:"director"`
+	Artist   string   `json:"artist"`
+	Tracks   []Track  `json:"tracks"`
+	Chapters []string `json:"chapters"`
 }
 
 type Track struct {

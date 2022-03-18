@@ -12,13 +12,31 @@ import (
 func main() {
 	data := loadData()
 	displayMostExpensive(data)
-
 	displayLongCds(data)
+	displayAuthorsWithBook(data)
+	displayItemsWithYear(data)
+}
 
+func displayItemsWithYear(data []types.Item) {
+	fmt.Println("Items that have a title, track, or chapter that contains a year..")
+	items := handler.ItemsWithYear(data)
+	for _, item := range items {
+		fmt.Printf("Item: %+v\n", item)
+	}
+	fmt.Println()
+}
+
+func displayAuthorsWithBook(data []types.Item) {
+	fmt.Println("Authors with cds...")
+	authors := handler.AuthorsWithCds(data)
+	for _, author := range authors {
+		fmt.Printf("Author: %+v\n", author)
+	}
+	fmt.Println()
 }
 
 func displayLongCds(data []types.Item) {
-	fmt.Println("Long cds..")
+	fmt.Println("Long cds...")
 	cds := handler.LongCds(data)
 	for _, item := range cds {
 		fmt.Printf("Item: %+v\n", item)
@@ -27,21 +45,21 @@ func displayLongCds(data []types.Item) {
 }
 
 func displayMostExpensive(data []types.Item) {
-	fmt.Println("Top 5 most expensive books..")
+	fmt.Println("Top 5 most expensive books...")
 	mostExpensive := handler.MostExpensive(data, "book")
 	for _, item := range mostExpensive {
 		fmt.Printf("Item: %+v\n", item)
 	}
 	fmt.Println()
 
-	fmt.Println("Top 5 most expensive cds..")
+	fmt.Println("Top 5 most expensive cds...")
 	mostExpensive = handler.MostExpensive(data, "cd")
 	for _, item := range mostExpensive {
 		fmt.Printf("Item: %+v\n", item)
 	}
 	fmt.Println()
 
-	fmt.Println("Top 5 most expensive dvds..")
+	fmt.Println("Top 5 most expensive dvds...")
 	mostExpensive = handler.MostExpensive(data, "dvd")
 	for _, item := range mostExpensive {
 		fmt.Printf("Item: %+v\n", item)
